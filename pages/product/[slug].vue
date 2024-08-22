@@ -43,7 +43,7 @@ onMounted(async () => {
       </p>
       <p>
         <strong>Size:</strong>
-        <button v-for="size in product.allPaSize.nodes" :key="size.id" style="margin: 0px 5px">{{ size.name }}</button>
+        <span v-for="size in product.allPaSize.nodes" :key="size.id" style="margin: 0px 5px; border: 1px solid #000; padding: 2px 5px">{{ size.name }}</span>
       </p>
     </div>
   </span>
