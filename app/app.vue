@@ -1,12 +1,18 @@
 <template>
-  <Cart />
   <NuxtPage />
+  <Cart />
 </template>
 
 <style>
 .table {
   border-collapse: collapse;
-  margin-top: 20px;
+  margin: 20px 0;
+}
+
+.table.cart,
+.table.cart tr:nth-child(even) {
+  background-color: green;
+  color: white;
 }
 
 .table th,
@@ -26,11 +32,11 @@
   font-weight: bold;
 }
 
-.table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.table.cart th {
+  background-color: #000;
 }
 
-.table tr:hover {
-  background-color: #f1f1f1;
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 </style>

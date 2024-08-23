@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   graphql: {
     clients: {
       default: {
-        endpoint: 'https://nuxtcommerce.zackha.com/px1dev66mvodt7j',
+        endpoint: 'https://host.zackha.com/graphql',
       },
     },
   },
