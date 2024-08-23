@@ -8,17 +8,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <span v-if="product">
-    <div>
-      <p>
-        <strong>ID:</strong>
-        {{ product.databaseId }}
-      </p>
-      <p>
-        <strong>Name:</strong>
-        {{ product.name }}
-      </p>
-    </div>
-  </span>
-  <span v-else>Loading...</span>
+  <div v-if="product">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><strong>ID:</strong></td>
+          <td>{{ product.databaseId }}</td>
+        </tr>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+          <td><strong>Description:</strong></td>
+          <td v-html="product.description"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div v-else>
+    <p>Loading...</p>
+  </div>
 </template>

@@ -7,11 +7,27 @@ onMounted(() => {
 </script>
 
 <template>
-  <p v-if="products.length" v-for="product in products" :key="product.databaseId">
-    <NuxtLink :to="{ name: 'product-slug', params: { slug: product.slug } }">
-      <strong>{{ product.databaseId }}</strong>
-      - {{ product.name }}
-    </NuxtLink>
-  </p>
-  <p v-else>loading...</p>
+  <div>
+    <table v-if="products.length" class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product Name</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="product in products" :key="product.databaseId">
+          <td>
+            <strong>{{ product.databaseId }}</strong>
+          </td>
+          <td>{{ product.name }}</td>
+          <td>
+            <NuxtLink :to="{ name: 'product-slug', params: { slug: product.slug } }">View Details</NuxtLink>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p v-else>loading...</p>
+  </div>
 </template>
