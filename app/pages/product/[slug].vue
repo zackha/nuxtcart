@@ -1,11 +1,9 @@
-<script setup>
-import { gql } from 'nuxt-graphql-request/utils';
+<script setup lang="ts">
 const route = useRoute();
 const product = ref(null);
 
-onMounted(async () => {
-  const data = await getProduct(route.params.slug);
-  product.value = data.product;
+onMounted(() => {
+  getProduct(route.params.slug).then(data => product.value = data.product);
 });
 </script>
 

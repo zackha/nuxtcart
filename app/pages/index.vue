@@ -1,9 +1,8 @@
 <script setup lang="ts">
 const products = ref([]);
 
-onMounted(async () => {
-  const data = await listProducts();
-  products.value = data.products.nodes;
+onMounted(() => {
+  listProducts().then(data => (products.value = data.products.nodes));
 });
 </script>
 
