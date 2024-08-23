@@ -10,6 +10,6 @@ export function listProducts() {
   return fetchGraphQL(getProductsQuery);
 }
 
-export function getProduct(slug, sku) {
-  return fetchGraphQL(getProductQuery, { slug, sku });
+export function getProduct(slug) {
+  return fetchGraphQL(getProductQuery, { slug });
 }

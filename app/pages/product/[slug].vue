@@ -3,40 +3,10 @@ import { gql } from 'nuxt-graphql-request/utils';
 const route = useRoute();
 const product = ref(null);
 
-const fetchProduct = async slug => {
-  const query = gql`
-    query getProduct($slug: ID!) {
-      product(idType: SLUG, id: $slug) {
-        databaseId
-        name
-        description
-      }
-    }
-  `;
-
-  const { product } = await useNuxtApp().$graphql.default.request(query, { slug });
-  return product;
-};
-
 onMounted(async () => {
-  product.value = await fetchProduct(route.params.slug);
+  const data = await getProduct(route.params.slug);
+  product.value = data.product;
 });
-
-//const selectedSize = ref(null);
-//const cart = ref([]);
-
-//const addToCart = () => {
-//  if (product.value && selectedSize.value) {
-//    cart.value.push({ product: product.value, size: selectedSize.value });
-//    alert(`${product.value.name} (${selectedSize.value}) sepete eklendi!`);
-//  } else {
-//    alert('Lütfen bir beden seçin.');
-//  }
-//};
-
-//const selectSize = size => {
-//  selectedSize.value = size;
-//};
 </script>
 
 <template>
