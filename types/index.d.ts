@@ -1,20 +1,10 @@
 interface Products {
   slug: string;
-  id: string;
+  databaseId: number;
   name: string;
-}
-
-interface SizeNode {
-  name: string;
-  id: string;
-}
-
-interface AllPaSize {
-  nodes: SizeNode[];
 }
 
 interface Product {
-  id: string;
+  databaseId: number;
   name: string;
-  allPaSize: AllPaSize;
 }
