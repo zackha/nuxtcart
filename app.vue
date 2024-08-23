@@ -1,4 +1,0 @@
-<template>
-  <Cart />
-  <NuxtPage />
-</template>
