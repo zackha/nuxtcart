@@ -7,6 +7,18 @@ export const getProductQuery = gql`
         databaseId
         name
         description
+        variations {
+          nodes {
+            databaseId
+            name
+            attributes {
+              nodes {
+                name
+                value
+              }
+            }
+          }
+        }
       }
     }
   }
