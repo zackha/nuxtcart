@@ -2,6 +2,7 @@ import { getProductsQuery } from '~/gql/queries/getProducts';
 import { getProductQuery } from '~/gql/queries/getProduct';
 import { addToCartMutation } from '~/gql/mutations/addToCart';
 import { updateItemQuantitiesMutation } from '~/gql/mutations/updateItemQuantities';
+import { checkoutMutation } from '~/gql/mutations/checkout';
 
 async function fetchGraphQL(query, variables = {}) {
   const { $graphql } = useNuxtApp();
@@ -34,4 +35,8 @@ export function addToCart(input) {
 
 export function updateItemQuantities(input) {
   return fetchGraphQL(updateItemQuantitiesMutation, { input });
+}
+
+export function checkout(input) {
+  return fetchGraphQL(checkoutMutation, { input });
 }
