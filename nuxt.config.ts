@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   graphql: {
     clients: {
       default: {
-        endpoint: 'https://host.zackha.com/graphql',
+        endpoint: process.env.GQL_HOST || 'http://localhost:4000/graphql',
       },
     },
   },
