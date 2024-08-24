@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const { cart } = useCart();
+const { cart, handleRemoveFromCart } = useCart();
 </script>
 
 <template>
   <table v-if="cart.length" class="table cart">
     <thead>
       <tr>
+        <th>Key</th>
         <th>ID</th>
         <th>Product Name</th>
         <th>Value</th>
@@ -13,16 +14,22 @@ const { cart } = useCart();
       </tr>
     </thead>
     <tbody>
-      <tr v-for="{ size } in cart" :key="size.databaseId">
+      <tr v-for="product in cart" :key="product.key">
         <td>
-          <strong>{{ size.databaseId }}</strong>
+          <strong>{{ product.key }}</strong>
         </td>
-        <td>{{ size.name }}</td>
-        <td v-for="attr in size.attributes.nodes" :key="attr.value">
+        <td>
+          <strong>{{ product.variation.node.databaseId }}</strong>
+        </td>
+        <td>{{ product.variation.node.name }}</td>
+        <td v-for="attr in product.variation.attributes" :key="attr.value">
           {{ attr.value.toUpperCase() }}
         </td>
-        <td><button>Remove</button></td>
+        <td>
+          <button @click="handleRemoveFromCart(product.key)">Remove</button>
+        </td>
       </tr>
     </tbody>
   </table>
+  <p v-else>Sepetiniz boş.</p>
 </template>
