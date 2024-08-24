@@ -32,9 +32,9 @@ const selectSize = size => {
               <button
                 :style="[
                   'margin-right: 10px; border: 1px solid #000; padding: 2px 5px; cursor: pointer',
-                  size.databaseId === selectedSize?.databaseId ? 'background-color: #000;color: #fff;' : '',
+                  size.databaseId === selectedSize ? 'background-color: #000;color: #fff;' : '',
                 ]"
-                @click="selectSize(size)"
+                @click="selectSize(size.databaseId)"
                 v-for="attr in size.attributes.nodes"
                 :key="attr.value">
                 {{ attr.value.toUpperCase() }}
@@ -48,7 +48,7 @@ const selectSize = size => {
         </tr>
       </tbody>
     </table>
-    <AddToCartButton :size="selectedSize" />
+    <AddToCartButton :varId="selectedSize" />
   </div>
   <div v-else>
     <p>Loading...</p>
