@@ -1,6 +1,7 @@
 <template>
   <NuxtPage />
   <Cart />
+  <Checkout />
 </template>
 
 <style>
